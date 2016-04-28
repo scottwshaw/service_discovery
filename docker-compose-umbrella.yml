@@ -1,0 +1,16 @@
+version: '2'
+services:
+  delay-server:
+    build: delay-server
+    expose:
+      - "3000"
+  umbrella:
+    image: nrel/api-umbrella
+    links:
+      - delay-server
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./api-umbrella/config:/etc/api-umbrella"
+    

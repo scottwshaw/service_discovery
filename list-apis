@@ -1,0 +1,2 @@
+#! /bin/bash
+curl -k https://192.168.99.100/api-umbrella/v1/apis -H "X-Admin-Auth-Token: MbWzFm6Ue9urrXsKs3OVkzlaYO4bIFBGGFnqRB4F" -H "X-Api-Key: YxeJ8zNNvoefVjtUq2rpKfbmwC5B0AT91q4KKYWB"

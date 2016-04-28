@@ -1,0 +1,37 @@
+version: '2'
+services:
+  delay-server:
+    build: delay-server
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+  cassandra:
+    image: cassandra:2.2.4
+    ports:
+      - "9042:9042"
+      - "9160:9160"
+      - "7199:7199"
+      - "7001:7001"
+    environment:
+      - CASSANDRA_START_RPC=true
+  kong-server:
+    image: mashape/kong
+    environment:
+      - DATABASE=cassandra
+    links:
+      - delay-server
+      - cassandra:cassandra
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "7946:7946"
+      - "7946:7946/udp"
+    volumes:
+      - "./kong/config:/etc/kong"
+    restart: always
+    
+
+
+      

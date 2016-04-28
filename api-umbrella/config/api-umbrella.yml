@@ -1,0 +1,16 @@
+web:
+  admin:
+    initial_superusers:
+      - swsapiumbrella@mailinator.com
+apis:
+  - _id: delay-service
+    name: delay-service
+    frontend_host: umbrella
+    backend_host: delay-server:3000
+    api_url_matches:
+      - frontend_prefix: "/hello"
+        backend_prefix: "/hello"
+      - fontend_prefix: "/delay/"
+        backend_prefix: "/delay/"
+    settings:
+      disable_api_key: true

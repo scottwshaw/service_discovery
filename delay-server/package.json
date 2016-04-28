@@ -1,0 +1,10 @@
+{"name" : "myserver",
+ "version" : "0.0.1",
+ "dependencies" : {
+     "express" : "4.13.4",
+     "suspend" : "0.7.0"
+ },
+ "scripts" : {
+     "start" : "node src/myserver.js"
+ }
+}
